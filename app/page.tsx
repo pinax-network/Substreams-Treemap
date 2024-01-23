@@ -105,7 +105,7 @@ const dataInvoices = [
   },
 ]
  
-export function TableDemo() {
+const TableDemo = () => {
   return (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -177,10 +177,6 @@ const PositiveAndNegativeBarChart = () => {
     </BarChart>
   );
 };
-
-const tableA = () => {
-  
-}
 
 export default function Home() {
   return (
