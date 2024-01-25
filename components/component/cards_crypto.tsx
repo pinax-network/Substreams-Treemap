@@ -89,7 +89,7 @@ export function CarteCrypto() {
       }
       
       
-      function DollarSignIcon(props: any) {
+      function DollarSignIcon(props) {
         return (
           <svg
             {...props}
