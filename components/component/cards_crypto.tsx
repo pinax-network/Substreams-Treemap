@@ -48,7 +48,7 @@ export function CarteCrypto() {
       )
     }
 
-    function ActivityIcon(props) {
+    function ActivityIcon(props: any) {
         return (
           <svg
             {...props}
@@ -68,7 +68,7 @@ export function CarteCrypto() {
       }
       
       
-      function CreditCardIcon(props) {
+      function CreditCardIcon(props: any) {
         return (
           <svg
             {...props}
@@ -89,7 +89,7 @@ export function CarteCrypto() {
       }
       
       
-      function DollarSignIcon(props) {
+      function DollarSignIcon(props: any) {
         return (
           <svg
             {...props}
@@ -109,7 +109,7 @@ export function CarteCrypto() {
         )
       }
 
-      function UsersIcon(props) {
+      function UsersIcon(props: any) {
         return (
           <svg
             {...props}
