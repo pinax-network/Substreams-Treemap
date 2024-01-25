@@ -1,9 +1,57 @@
 'use client'
 import { Footer } from '@/components/component/footer';
 import { Header } from '@/components/component/header';
+import { TableCrypto } from '@/components/component/table_crypto';
+import { CarteCrypto } from '@/components/component/cards_crypto';
 import {Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart, Bar, Cell, ReferenceLine, ResponsiveContainer, } from 'recharts';
+import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import React from 'react';
+import { CarteGraph } from '@/components/component/cards_graph';
+
+export default function Home() {
+  return (
+    <>
+      <Header />
+      <main className="overflow-auto">
+        <div className="flex flex-col items-center justify-center bg-gradient-to-b from-indigo-950 to-black">
+          <div className="mb-10 " >
+            <br></br>
+            
+            <Card className='bg-indigo-50'>
+            <div className= "text-sm text-center font-semibold underline">
+              This is a Chart (Recharts)
+            </div>
+              <CustomLineChart /> {/* Recharts chart */}
+            </Card>  
+            <br></br>
+
+            <Card className='bg-indigo-50'>
+            <div className= "text-sm text-center font-semibold underline"> 
+              This is the second Chart (Recharts)
+            </div>
+            <div className='content-center'>
+              <PositiveAndNegativeBarChart /> {/* Recharts chart */}
+            </div>
+            </Card>
+            <br></br>
+
+            <CarteCrypto /> {/* v0 components */}
+            <br></br>
+            <TableCrypto /> {/* v0 components */}
+            <br></br>
+            <CarteGraph /> {/* v0 components, nivo charts */}
+            <br></br>
+
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+
 
 const data = [
   { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
@@ -105,7 +153,7 @@ const dataInvoices = [
   },
 ]
  
-const TableDemo = () => {
+const TableDemo = () => {                             {/* Existe Pu */}
   return (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -140,6 +188,7 @@ const TableDemo = () => {
 // CustomLineChart component
 const CustomLineChart = () => {
   return (
+    <div className="flex justify-center">
     <LineChart width={600} height={300} data={data}>
       <XAxis dataKey="name" />
       <YAxis />
@@ -149,16 +198,19 @@ const CustomLineChart = () => {
       <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
       <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
     </LineChart>
+    </div>
   );
 };
 
 // PositiveAndNegativeBarChart component
 const PositiveAndNegativeBarChart = () => {
   return (
+    <div className="flex justify-center">
     <BarChart
       width={600}
       height={300}
       data={data2}
+      style={{ maxWidth: '100%' }}
       margin={{
         top: 5,
         right: 30,
@@ -167,7 +219,7 @@ const PositiveAndNegativeBarChart = () => {
       }}
       barSize={20}
     >
-      <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+      <XAxis dataKey="name" scale="point" padding={{ left: 27, right: 27 }} />
       <YAxis />
       <Tooltip />
       <Legend />
@@ -175,40 +227,6 @@ const PositiveAndNegativeBarChart = () => {
       <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
       <Bar dataKey="uv" fill="#82ca9d" />
     </BarChart>
+    </div>
   );
 };
-
-export default function Home() {
-  return (
-    <>
-      <Header />
-      <main className="overflow-auto">
-        <div className="flex flex-col items-center justify-center bg-gray-100">
-          <div className="mb-10 " >
-            <br></br>
-            
-            <div className= "text-sm text-center font-semibold underline">
-              This is a Chart
-            </div>
-            <CustomLineChart />
-            <br></br>
-
-            <div className= "text-sm text-center font-semibold underline"> 
-              This is the second Chart
-            </div>
-            <PositiveAndNegativeBarChart />
-            <br></br>
-
-            <div className= "text-sm text-center font-semibold underline"> 
-              This is the Table
-            </div>
-            <TableDemo />
-            <br></br>
-
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
-  );
-}
