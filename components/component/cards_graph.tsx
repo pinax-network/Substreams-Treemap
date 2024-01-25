@@ -68,7 +68,7 @@ export function CarteGraph() {
         )
     }
 
-    function LineChart(props: any) {
+    function LineChart(props: React.HTMLProps<HTMLDivElement>) {
         return (
           <div {...props}>
             <ResponsiveLine
