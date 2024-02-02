@@ -7,28 +7,28 @@ export function CarteGraph() {
     return ( 
           <div className="grid gap-6">
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="flex flex-col bg-indigo-50">
+              <Card className="flex flex-col bg-indigo-50/10 backdrop-blur-lg border-white/40">
                 <CardHeader>
-                  <CardDescription>Bitcoin (nivo line graph) </CardDescription>
-                  <CardTitle>$2389.00</CardTitle>
+                  <CardDescription className= "text-indigo-50">Bitcoin (nivo line graph) </CardDescription>
+                  <CardTitle className= "text-indigo-50">$2389.00</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <LineChart className="aspect-[4/3]" />
                 </CardContent>
               </Card>
-              <Card className="flex flex-col bg-indigo-50">
+              <Card className="flex flex-col bg-indigo-50/10 backdrop-blur-lg border-white/40">
                 <CardHeader>
-                  <CardDescription>Ethereum (nivo line graph) </CardDescription>
-                  <CardTitle>$345</CardTitle>
+                  <CardDescription className= "text-indigo-50">Ethereum (nivo line graph) </CardDescription>
+                  <CardTitle className= "text-indigo-50">$345</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <LineChart className="aspect-[4/3]" />
                 </CardContent>
               </Card>
-              <Card className="flex flex-col  bg-indigo-50">
+              <Card className="flex flex-col  bg-indigo-50/10 backdrop-blur-lg border-white/40">
                 <CardHeader>
-                  <CardDescription>Ripple (nivo line graph) </CardDescription>
-                  <CardTitle>$33.5</CardTitle>
+                  <CardDescription className= "text-indigo-50">Ripple (nivo line graph) </CardDescription>
+                  <CardTitle className= "text-indigo-50">$33.5</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <LineChart className="aspect-[4/3]" />
@@ -36,28 +36,28 @@ export function CarteGraph() {
               </Card>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="flex flex-col bg-indigo-50">
+              <Card className="flex flex-col bg-indigo-50/10 backdrop-blur-lg border-white/40">
                 <CardHeader>
-                  <CardDescription>Litecoin (nivo line graph) </CardDescription>
-                  <CardTitle>$3,456</CardTitle>
+                  <CardDescription className= "text-indigo-50">Litecoin (nivo line graph) </CardDescription>
+                  <CardTitle className= "text-indigo-50">$3,456</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <LineChart className="aspect-[4/3]" />
                 </CardContent>
               </Card>
-              <Card className="flex flex-col bg-indigo-50">
+              <Card className="flex flex-col bg-indigo-50/10 backdrop-blur-lg border-white/40">
                 <CardHeader>
-                  <CardDescription>Cardano (nivo line graph) </CardDescription>
-                  <CardTitle>$12,345</CardTitle>
+                  <CardDescription className= "text-indigo-50">Cardano (nivo line graph) </CardDescription>
+                  <CardTitle className= "text-indigo-50">$12,345</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <LineChart className="aspect-[4/3]" />
                 </CardContent>
               </Card>
-              <Card className="flex flex-col bg-indigo-50">
+              <Card className="flex flex-col bg-indigo-50/10 backdrop-blur-lg border-white/40">
                 <CardHeader>
-                  <CardDescription>Polkadot (nivo line graph) </CardDescription>
-                  <CardTitle>$1.1K</CardTitle>
+                  <CardDescription className= "text-indigo-50">Polkadot (nivo line graph) </CardDescription>
+                  <CardTitle className= "text-indigo-50">$1.1K</CardTitle>
                 </CardHeader>
                 <CardContent className="grid gap-4">
                   <LineChart className="aspect-[4/3]" />
@@ -119,6 +119,13 @@ export function CarteGraph() {
               useMesh={true}
               gridYValues={6}
               theme={{
+                axis: {
+                  ticks: {
+                    text: {
+                      fill: "#ffffff" // White color
+                    }
+                  }
+                },
                 tooltip: {
                   chip: {
                     borderRadius: "9999px",
@@ -131,7 +138,7 @@ export function CarteGraph() {
                 },
                 grid: {
                   line: {
-                    stroke: "#f3f4f6",
+                    stroke: "#ffffff",
                   },
                 },
               }}

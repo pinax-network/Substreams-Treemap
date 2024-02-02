@@ -1,54 +1,55 @@
 'use client'
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
+import React from 'react';
 
 export function CarteCrypto() {
     return (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Card className="bg-indigo-50">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Card className="bg-indigo-50/10 backdrop-blur-lg border-white/40">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-              <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
-              <DollarSignIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <CardTitle className="text-sm text-white font-medium">Total Balance</CardTitle>
+              <DollarSignIcon className="w-4 h-4 text-white dark:text-gray-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$12,345.67</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+20.1% from last month</p>
+              <div className="text-2xl text-white font-bold">$12,345.67</div>
+              <p className="text-xs text-white dark:text-gray-400">+20.1% from last month</p>
             </CardContent>
           </Card>
-          <Card className="bg-indigo-50">
+          <Card className="bg-indigo-50/10 backdrop-blur-lg border-white/40">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-              <CardTitle className="text-sm font-medium">Transactions</CardTitle>
-              <UsersIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <CardTitle className="text-sm text-white font-medium">Transactions</CardTitle>
+              <UsersIcon className="w-4 h-4 text-white dark:text-gray-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">+2350</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+180.1% from last month</p>
+              <div className="text-2xl text-white font-bold">+2350</div>
+              <p className="text-xs text-white dark:text-gray-400">+180.1% from last month</p>
             </CardContent>
           </Card>
-          <Card className="bg-indigo-50">
+          <Card className="bg-indigo-50/10 backdrop-blur-lg border-white/40">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-              <CardTitle className="text-sm font-medium">Active Now</CardTitle>
-              <CreditCardIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <CardTitle className="text-sm text-white font-medium">Active Now</CardTitle>
+              <CreditCardIcon className="w-4 h-4 text-white dark:text-gray-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">+12,234</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+19% from last month</p>
+              <div className="text-2xl text-white font-bold">+12,234</div>
+              <p className="text-xs text-white dark:text-gray-400">+19% from last month</p>
             </CardContent>
           </Card>
-          <Card className="bg-indigo-50">
+          <Card className="bg-indigo-50/10 backdrop-blur-lg border-white/40">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-              <CardTitle className="text-sm font-medium">Active Now</CardTitle>
-              <ActivityIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <CardTitle className="text-sm text-white font-medium">Active Now</CardTitle>
+              <ActivityIcon className="w-4 h-4 text-white dark:text-gray-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">+573</div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">+201 since last hour</p>
+              <div className="text-2xl text-white font-bold">+573</div>
+              <p className="text-xs text-white dark:text-gray-400">+201 since last hour</p>
             </CardContent>
           </Card>
         </div>
       )
     }
 
-    function ActivityIcon(props: any) {
+    function ActivityIcon(props: React.SVGProps<SVGSVGElement>) {
         return (
           <svg
             {...props}
@@ -68,7 +69,7 @@ export function CarteCrypto() {
       }
       
       
-      function CreditCardIcon(props: any) {
+      function CreditCardIcon(props: React.SVGProps<SVGSVGElement>) {
         return (
           <svg
             {...props}
@@ -89,7 +90,7 @@ export function CarteCrypto() {
       }
       
       
-      function DollarSignIcon(props: any) {
+      function DollarSignIcon(props: React.SVGProps<SVGSVGElement>) {
         return (
           <svg
             {...props}
@@ -109,7 +110,7 @@ export function CarteCrypto() {
         )
       }
 
-      function UsersIcon(props: any) {
+      function UsersIcon(props: React.SVGProps<SVGSVGElement>) {
         return (
           <svg
             {...props}

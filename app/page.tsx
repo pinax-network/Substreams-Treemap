@@ -8,31 +8,24 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import React from 'react';
 import { CarteGraph } from '@/components/component/cards_graph';
+import { fetchBlockData } from '@/lib/utils';
+import ChartContainer from '@/components/component/table_api';
 
 export default function Home() {
   return (
     <>
       <Header />
       <main className="overflow-auto">
-        <div className="flex flex-col items-center justify-center bg-gradient-to-b from-indigo-950 to-black">
+      <div className="flex flex-col items-center justify-center bg-cover bg-center px-10"
+       style={{ backgroundImage: "url('/bg_color_splash.jpg')" }}>                   {/* https://4kwallpapers.com/photography/color-burst-splash-colorful-black-background-macos-sierra-1532.html */}
           <div className="mb-10 " >
             <br></br>
             
-            <Card className='bg-indigo-50'>
-            <div className= "text-sm text-center font-semibold underline">
-              This is a Chart (Recharts)
+            <Card className='bg-indigo-50/10 backdrop-blur-lg border-white/40 p-4'>
+            <div className= "text-md text-center text-white font-semibold p-1">
+              Polygon (30 days) (trace calls)
             </div>
-              <CustomLineChart /> {/* Recharts chart */}
-            </Card>  
-            <br></br>
-
-            <Card className='bg-indigo-50'>
-            <div className= "text-sm text-center font-semibold underline"> 
-              This is the second Chart (Recharts)
-            </div>
-            <div className='content-center'>
-              <PositiveAndNegativeBarChart /> {/* Recharts chart */}
-            </div>
+             <ChartContainer />
             </Card>
             <br></br>
 
@@ -51,62 +44,6 @@ export default function Home() {
   );
 }
 
-
-
-const data = [
-  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
-  { name: 'Page D', uv: 278, pv: 3908, amt: 2000 },
-  { name: 'Page E', uv: 189, pv: 4800, amt: 2181 },
-  { name: 'Page F', uv: 239, pv: 3800, amt: 2500 },
-  { name: 'Page G', uv: 349, pv: 4300, amt: 2100 },
-];
-
-const data2 = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: -3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: -2000,
-    pv: -9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: -1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: -3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
 
 const dataInvoices = [
   {
@@ -153,80 +90,3 @@ const dataInvoices = [
   },
 ]
  
-const TableDemo = () => {                             {/* Existe Pu */}
-  return (
-    <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">Invoice</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {dataInvoices.map((dataInvoices) => (
-          <TableRow key={dataInvoices.invoice}>
-            <TableCell className="font-medium">{dataInvoices.invoice}</TableCell>
-            <TableCell>{dataInvoices.paymentStatus}</TableCell>
-            <TableCell>{dataInvoices.paymentMethod}</TableCell>
-            <TableCell className="text-right">{dataInvoices.totalAmount}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
-        </TableRow>
-      </TableFooter>
-    </Table>
-  )
-}
-
-// CustomLineChart component
-const CustomLineChart = () => {
-  return (
-    <div className="flex justify-center">
-    <LineChart width={600} height={300} data={data}>
-      <XAxis dataKey="name" />
-      <YAxis />
-      <CartesianGrid strokeDasharray="3 3" />
-      <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-    </LineChart>
-    </div>
-  );
-};
-
-// PositiveAndNegativeBarChart component
-const PositiveAndNegativeBarChart = () => {
-  return (
-    <div className="flex justify-center">
-    <BarChart
-      width={600}
-      height={300}
-      data={data2}
-      style={{ maxWidth: '100%' }}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-      barSize={20}
-    >
-      <XAxis dataKey="name" scale="point" padding={{ left: 27, right: 27 }} />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <CartesianGrid strokeDasharray="3 3" />
-      <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
-      <Bar dataKey="uv" fill="#82ca9d" />
-    </BarChart>
-    </div>
-  );
-};

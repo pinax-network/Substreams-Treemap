@@ -2,10 +2,11 @@
 import Link from 'next/link';
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import React from 'react';
 
 export function Header() {
   return (
-    <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6 bg-indigo-50">
+    <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6 bg-indigo-50 backdrop-blur-50">
         <nav className="flex-col hidden gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link className="flex items-center gap-2 text-lg font-semibold md:text-base" href="#">
             <Package2Icon className="w-6 h-6" />
@@ -51,7 +52,7 @@ export function Header() {
   );
 }
 
-function Package2Icon(props) {
+function Package2Icon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -73,7 +74,7 @@ function Package2Icon(props) {
 }
 
 
-function SearchIcon(props) {
+function SearchIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
