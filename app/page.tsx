@@ -3,12 +3,8 @@ import { Footer } from '@/components/component/footer';
 import { Header } from '@/components/component/header';
 import { TableCrypto } from '@/components/component/table_crypto';
 import { CarteCrypto } from '@/components/component/cards_crypto';
-import {Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart, Bar, Cell, ReferenceLine, ResponsiveContainer, } from 'recharts';
-import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { CarteGraph } from '@/components/component/cards_graph';
-import { fetchBlockData } from '@/lib/utils';
 import ChartContainer from '@/components/component/table_api';
 
 export default function Home() {
@@ -21,16 +17,12 @@ export default function Home() {
           <div className="mb-10 " >
             <br></br>
             
-            <Card className='bg-indigo-50/10 backdrop-blur-lg border-white/40 p-4'>
-            <div className= "text-md text-center text-white font-semibold p-1">
-              Polygon (30 days) (trace calls)
-            </div>
-             <ChartContainer />
-            </Card>
+            <ChartContainer />
             <br></br>
 
-            <CarteCrypto /> {/* v0 components */}
-            <br></br>
+            {/*<CarteCrypto /> {/* v0 components */}
+            {/*<br></br> */}
+            
             <TableCrypto /> {/* v0 components */}
             <br></br>
             <CarteGraph /> {/* v0 components, nivo charts */}

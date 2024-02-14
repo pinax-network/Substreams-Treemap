@@ -11,15 +11,21 @@
   "dependencies": {
     "@nivo/line": "^0.84.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@substreams/core": "^0.15.1",
+    "@substreams/manifest": "^0.14.1",
+    "@substreams/node": "^0.6.2",
+    "@substreams/sink-entity-changes": "^0.3.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "d3": "^7.8.5",
     "lucide-react": "^0.312.0",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
     "recharts": "^2.10.4",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "type": "module"
   },
   "devDependencies": {
     "@types/node": "^20",
