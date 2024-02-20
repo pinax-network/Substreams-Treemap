@@ -6,6 +6,9 @@ import { CarteCrypto } from '@/components/component/cards_crypto';
 import React, { useEffect, useState } from 'react';
 import { CarteGraph } from '@/components/component/cards_graph';
 import ChartContainer from '@/components/component/table_api';
+//import Treemap from '@/components/component/treemap';
+import Output from '@/components/component/output';
+import SubstreamsComponent from '@/components/component/substreamComponent';
 
 export default function Home() {
   return (
@@ -18,6 +21,16 @@ export default function Home() {
             <br></br>
             
             <ChartContainer />
+            <br></br>
+
+            
+            {/*<Treemap /> */}
+            <br></br>
+
+            <Output />
+            <br></br>
+
+            {/*<SubstreamsComponent />*/}
             <br></br>
 
             {/*<CarteCrypto /> {/* v0 components */}
