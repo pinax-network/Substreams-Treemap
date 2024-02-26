@@ -5,6 +5,7 @@ import createWebTransport from '@substreams/node/createWebTransport';
 import { EntityChanges } from '@substreams/sink-entity-changes/entity_pb';
 import React, { useState } from 'react';
 import useSWR from 'swr';
+import {TreemapComponent} from '@/components/component/treemap';
 import { Barplot } from './barplot';
 
 async function fetcher(manifest: string) {
@@ -30,6 +31,8 @@ function SubstreamPackage({substreamPackage, apiToken}: {substreamPackage: Proto
   const [started, setStart] = useState(false);
   const [session, setSession] = useState<SessionInit>();
   const [messages, setMessages] = useState<EntityChanges[]>([]);
+  const [balanceByContract, setBalanceByContract] = useState<Record<string, number>>({});
+  const [hierarchyData, setHierarchyData] = useState<{ name: string; children: number }[]>([]);
 
   let doc = ''
   let network = substreamPackage.network
@@ -62,46 +65,41 @@ function SubstreamPackage({substreamPackage, apiToken}: {substreamPackage: Proto
     });
 
     // Stream Blocks
-    emitter.on("anyMessage", (message: any, cursor, clock) => {
-      console.dir(message.entityChanges);
-      setMessages((prevMessages) => [...prevMessages, message]);
+    emitter.on("anyMessage", (message: any) => {
+      const balanceChanges = message.entityChanges.filter(change => change.entity === "BalanceChange");
+      
+      const updatedBalances = balanceChanges.reduce((acc, change) => {
+        const contract = change.fields.find(field => field.name === "contract").newValue.string;
+        const newBalance = parseFloat(change.fields.find(field => field.name === "newBalance").newValue.string);
+        acc[contract] = newBalance;
+        return acc;
+      }, { ...balanceByContract });
+
+      console.dir(updatedBalances);
+      setBalanceByContract(updatedBalances);
     });
 
     emitter.start()
     setStart(true)
   }
   const entities = messages.reduce((prev, current) => {
-    return prev + current.entityChanges.length 
+    return prev + current.entityChanges.length
   }, 0);
-
-  const groupNewBalanceByContract = (messages) => {
-    // Object to hold the newBalance values organized by contract
-    const balanceByContract = {};
+  // Transform balanceByContract for rendering if needed
+  const balanceDataArray = Object.entries(balanceByContract).map(([contract, balance]) => ({
+    name: contract,
+    value: balance,
+  }));
   
-    messages.forEach((message) => {
-      // Filter for BalanceChange entities
-      const balanceChanges = message.entityChanges.filter(change => change.entity === "BalanceChange");
-  
-      balanceChanges.forEach((change) => {
-        // Extract contract and newBalance values
-        const contract = change.fields.find(field => field.name === "contract").newValue.string;
-        const newBalance = change.fields.find(field => field.name === "newBalance").newValue.string;
-  
-        // Initialize the array for this contract if not already done
-        if (!balanceByContract[contract]) {
-          balanceByContract[contract] = [];
-        }
-      
-        // Add the newBalance to the array for this contract
-        balanceByContract[contract].push(newBalance);
-      });
-    });
-  
-    return balanceByContract;
-  };
-
-  const balanceByContract = groupNewBalanceByContract(messages);
+  return (
+    <div>
+      {/* Render your Treemap component and pass the hierarchical data as props */}
+      <Barplot data={balanceDataArray} width={700} height={400} /> 
+    </div>
+  );
 
 }
+
+
 
 export default SubstreamsComponent;
