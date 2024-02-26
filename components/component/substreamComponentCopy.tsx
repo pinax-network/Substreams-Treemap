@@ -32,7 +32,6 @@ function SubstreamPackage({substreamPackage, apiToken}: {substreamPackage: Proto
   const [session, setSession] = useState<SessionInit>();
   const [messages, setMessages] = useState<EntityChanges[]>([]);
   const [balanceByContract, setBalanceByContract] = useState<Record<string, number>>({});
-  const [hierarchyData, setHierarchyData] = useState<{ name: string; children: number }[]>([]);
 
   let doc = ''
   let network = substreamPackage.network
@@ -90,11 +89,23 @@ function SubstreamPackage({substreamPackage, apiToken}: {substreamPackage: Proto
     name: contract,
     value: balance,
   }));
+  const treemapData = {
+    name: "Root", // Root node
+    children: Object.entries(balanceByContract).map(([contract, balance]) => ({
+      name: contract,
+      value: balance,
+      // If you have categories for contracts, they could be represented as children here
+    }))
+  };
   
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center px-10'>
       {/* Render your Treemap component and pass the hierarchical data as props */}
-      <Barplot data={balanceDataArray} width={700} height={400} /> 
+      <Barplot data={balanceDataArray} width={700} height={400} />
+      <br></br>
+      <TreemapComponent data={treemapData} />
+      <br></br>
+
     </div>
   );
 
