@@ -1,0 +1,60 @@
+{
+  "contracts":[
+    {
+      "contract": "7ffb3d637014488b63fb9858e279385685afc1e2",
+      "name": "Tether USD",
+      "ticker": "USDT",
+      "usdValue": 1.00,
+      "logoUrl": "/logos/tether-usdt-logo.svg"
+    },
+    {
+      "contract": "b0d89add03d77c75a31b3dca0ae1abc1e6a50d97",
+      "name": "BNB",
+      "ticker": "BNB",
+      "usdValue": 484.55,
+      "logoUrl": "/logos/bnb-bnb-logo.svg"
+    },
+    {
+      "contract": "235ae97b28466db30469b89a9fe4cff0659f82cb",
+      "name": "USD Coin",
+      "ticker": "USDC",
+      "usdValue": 1.00,
+      "logoUrl": "/logos/usd-coin-usdc-logo.svg"
+    },
+    {
+      "contract": "7ffb3d637014488b63fb9858e279385685afc1e2",
+      "name": "Binance-USD",
+      "ticker": "BUSD",
+      "usdValue": 1.00,
+      "logoUrl": "/logos/binance-usd-busd-logo.svg"
+    },
+    {
+      "contract": "0ed3d66dd0c9be71c8bf280a010b96881c69e7b6",
+      "name": "SHIBA INU (PoS)",
+      "ticker": "SHIB",
+      "usdValue": 0.00003545,
+      "logoUrl": "/logos/shiba-inu-shib-logo.svg"
+    },
+    {
+      "contract": "2c89bbc92bd86f8075d1decc58c7f4e0107f286b",
+      "name": "Avalanche Token",
+      "ticker": "AVAX",
+      "usdValue": 42.81,
+      "logoUrl": "/logos/avalanche-avax-logo.svg"
+    },
+    {
+      "contract": "53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+      "name": "ChainLink Token",
+      "ticker": "LINK",
+      "usdValue": 19.90,
+      "logoUrl": "/logos/chainlink-link-logo.svg"
+    },
+    {
+      "contract": "55ffbee7323cc4647e294f5f1e72a3cc978da5db",
+      "name": "Uniswap (PoS)",
+      "ticker": "UNI",
+      "usdValue": 14.78,
+      "logoUrl": "/logos/uniswap-uni-logo.svg"
+    }
+  ]
+}

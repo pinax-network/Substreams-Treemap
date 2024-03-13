@@ -15,26 +15,13 @@ export default function Home() {
     <>
       <Header />
       <main className="overflow-auto">
-      <div className="flex flex-col items-center justify-center bg-cover bg-center px-10"
-       style={{ backgroundImage: "url('/bg_color_splash.jpg')" }}>                   {/* https://4kwallpapers.com/photography/color-burst-splash-colorful-black-background-macos-sierra-1532.html */}
+      <div className="flex flex-col items-center justify-center bg-cover bg-center px-10 bg-gray-900"
+       style={{ backgroundImage: "url('/blur_blue.svg')" }}>                 
           <div className="mb-10 " >
             <br></br>
             
             <ChartContainer />
             <br></br>
-
-            
-            {/*<Treemap /> */}
-            <br></br>
-
-            <Output />
-            <br></br>
-
-            {/*<SubstreamsComponent />*/}
-            <br></br>
-
-            {/*<CarteCrypto /> {/* v0 components */}
-            {/*<br></br> */}
             
             <TableCrypto /> {/* v0 components */}
             <br></br>
