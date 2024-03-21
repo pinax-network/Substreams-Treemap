@@ -63,7 +63,7 @@ async function fetcher(manifest: string) {
   return substreamPackage;
 }
 
-function SubstreamsComponent() {
+function SubstreamsComponent({ visibleTokens }) {
   const manifest = "https://spkg.io/pinax-network/erc20-balance-changes-mainnet-v1.2.0.spkg";
   const apiKey = "657047275aea337c6dd47fb19715f0df056096af91311c21";
   const { data, isLoading } = useSWR("manifest/" + manifest, () => fetcher(manifest));
@@ -71,10 +71,10 @@ function SubstreamsComponent() {
   if ( isLoading ) return <>I'm loading...</>
   if ( !data ) return <>no data</>
 
-  return <SubstreamPackage substreamPackage={data} apiToken={apiKey} />
+  return <SubstreamPackage substreamPackage={data} apiToken={apiKey} visibleTokens={visibleTokens} />
 };
 
-function SubstreamPackage({substreamPackage, apiToken}: {substreamPackage: ProtoPackage, apiToken: string}) {
+function SubstreamPackage({substreamPackage, apiToken, visibleTokens }: {substreamPackage: ProtoPackage, apiToken: string, visibleTokens: any}) {
   const [started, setStart] = useState(false);
   const [session, setSession] = useState<SessionInit>();
   const [messages, setMessages] = useState<EntityChanges[]>([]);
@@ -160,7 +160,14 @@ function SubstreamPackage({substreamPackage, apiToken}: {substreamPackage: Proto
     return prev + current.entityChanges.length
   }, 0);
 
-  const balanceDataArray: Tree[] = Object.entries(balanceByContract).map(([contract, owners]) => {
+  const balanceDataArray: Tree[] = Object.entries(balanceByContract)
+  .filter(([contract]) => {
+      // Get the token name using the contract address
+      const tokenName = allowedContractsMap[contract]?.name;
+      // Return visibility status from visibleTokens
+      return visibleTokens[tokenName];
+  })
+  .map(([contract, owners]) => {
     const contractInfo = allowedContractsMap[contract];
     // Convert owners object to array, sort by balance descending, and take the top 20
     const sortedOwners = Object.entries(owners)
@@ -190,7 +197,7 @@ function SubstreamPackage({substreamPackage, apiToken}: {substreamPackage: Proto
   return (
     <div className='flex flex-col items-center justify-center px-10'>
       <br></br>
-      <Treemap data={treemapData} width={1100} height={800} />
+      <Treemap data={treemapData} width={1100} height={800} visibleTokens={visibleTokens}/>
       <br></br>
     </div>
   );

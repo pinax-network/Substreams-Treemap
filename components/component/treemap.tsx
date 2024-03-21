@@ -11,6 +11,7 @@ interface TreemapProps {
   width: number;
   height: number;
   data: Tree;
+  visibleTokens: { [key: string]: boolean }; 
 }
 
 function filterData(data, threshold) {
@@ -26,7 +27,7 @@ function filterData(data, threshold) {
 }
 
 export const Treemap = ({ width, height, data }: TreemapProps) => {
-  //console.log(data); // debug
+  console.log(data); // debug
 
   const filteredData = filterData(data, 10);
 
@@ -63,11 +64,11 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
 
   
     return (
-      <g key={leaf.id} className={styles.rectangle}>
+    <g key={leaf.id} className={styles.rectangle}>
       <rect
         x={x0}
         y={y0}
-        width={width}
+        width={width}          
         height={height}
         rx="10" // Adjust for rounded corners
         ry="10" // Adjust for rounded corners

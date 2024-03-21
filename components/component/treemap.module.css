@@ -1,0 +1,19 @@
+/* treemap.module.css */
+.rectangle:hover rect {
+    opacity: 1; /* More visible on hover */
+  }
+  
+  .rectangle:hover image {
+    opacity: 1; /* More visible on hover */
+  }
+  
+  .rectangle rect {
+    opacity: 0.3; /* More opaque (less visible) by default */
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .rectangle image {
+    opacity: 0.7; /* Less opaque (more visible) by default */
+    transition: opacity 0.2s ease-in-out;
+  }
+  
