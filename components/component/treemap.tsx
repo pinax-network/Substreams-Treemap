@@ -3,10 +3,6 @@ import * as d3 from "d3";
 import { Tree } from "./substreamComponent";
 import styles from "./treemap.module.css";
 
-const colors = [
-   "#A0D6B4", "#89CFF0", "#AFDED2", "#E6E6FA", "#F5FFFA", "#FADADD", "#F08080", "#B0E0E6","#FFDAB9","#D8BFD8",
-];
-
 interface TreemapProps {
   width: number;
   height: number;
@@ -35,14 +31,6 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
   const hierarchy = useMemo(() => {
     return d3.hierarchy(filteredData).sum((d) => d.value);
   }, [filteredData]);
-  
-  //console.log(hierarchy); // debug
-  
-  const firstLevelGroups = hierarchy?.children?.map((child) => child.data.name);
-  var colorScale = d3
-    .scaleOrdinal<string>()
-    .domain(firstLevelGroups || [])
-    .range(colors);
 
   const root = useMemo(() => {
     const treeGenerator = d3.treemap<Tree>()
@@ -53,18 +41,36 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
     return treeGenerator(hierarchy);
   }, [hierarchy, width, height]);
 
+  const chainRectangles = root.children?.map((chain, i) => (
+    <rect
+      key={`chain-${i}`}
+      x={chain.x0}
+      y={chain.y0}
+      width={chain.x1 - chain.x0}
+      height={chain.y1 - chain.y0}
+      rx="20" // Adjust for rounded corners
+      ry="20" // Adjust for rounded corners
+      stroke="white"
+      strokeWidth="1"
+      opacity="0.1" // Slightly transparent
+    />
+  ));
+
   const allShapes = root.leaves().filter(leaf => leaf.value >= 10).map((leaf) => {
-    const parentName = leaf.parent?.data.name;
-    // Format the value to show only two digits after the decimal
-    const formattedValue = Number(leaf.data.value).toFixed(2);
-    const logoUrl = leaf.data.logoUrl;
     const {x0, x1, y0, y1, data} = leaf; // Destructure for easier access
     const width = x1 - x0;
     const height = y1 - y0;
-
+    const chainName = leaf.data.chain;
+    const baseLink = chainName === "Ethereum" ? "https://etherscan.io/address/0x" : "https://polygonscan.com/address/0x";
   
     return (
-    <g key={leaf.id} className={styles.rectangle}>
+      <a
+        href={`${baseLink}${data.address}`} // Use the owner's address from the data
+        target="_blank" // Open in a new tab
+        rel="noopener noreferrer" // Security measure for opening links in a new tab
+        key={leaf.id} // Ensure the key is on the outermost element
+        className={styles.rectangle}
+      >
       <rect
         x={x0}
         y={y0}
@@ -74,7 +80,7 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
         ry="10" // Adjust for rounded corners
         stroke="#e5e5e5"
         fill="#e5e5e5"
-        className={"opacity-30 hover:opacity-100 transition-opacity duration-100"}
+        className={"opacity-10 hover:opacity-100 transition-opacity duration-100"}
       />
       <image
         href={data.logoUrl} // Use logo URL from the data
@@ -85,15 +91,17 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
         preserveAspectRatio="xMidYMid meet" // Adjust as needed
         className="opacity-70 hover:opacity-100 transition-opacity duration-100" // Make the image more visible on hover
       />
-    </g>
+    </a>
     );
   });  
 
   return (
     <div>
       <svg width={width} height={height}>
+        {chainRectangles}
         {allShapes}
       </svg>
+      <br></br>
     </div>
   );
 };

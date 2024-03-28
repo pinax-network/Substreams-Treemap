@@ -2,59 +2,115 @@
   "contracts":[
     {
       "contract": "7ffb3d637014488b63fb9858e279385685afc1e2",
-      "name": "Tether USD",
+      "name": "Tether USD Poly",
       "ticker": "USDT",
       "usdValue": 1.00,
-      "logoUrl": "/logos/tether-usdt-logo.svg"
+      "logoUrl": "/logos/tether-usdt-poly.svg",
+      "chain": "Polygon" 
     },
     {
       "contract": "b0d89add03d77c75a31b3dca0ae1abc1e6a50d97",
-      "name": "BNB",
+      "name": "BNB Poly",
       "ticker": "BNB",
       "usdValue": 484.55,
-      "logoUrl": "/logos/bnb-bnb-logo.svg"
+      "logoUrl": "/logos/bnb-poly.svg",
+      "chain": "Polygon"
     },
     {
       "contract": "235ae97b28466db30469b89a9fe4cff0659f82cb",
-      "name": "USD Coin",
+      "name": "USD Coin Poly",
       "ticker": "USDC",
       "usdValue": 1.00,
-      "logoUrl": "/logos/usd-coin-usdc-logo.svg"
+      "logoUrl": "/logos/usd-coin-poly.svg",
+      "chain": "Polygon"
     },
     {
-      "contract": "7ffb3d637014488b63fb9858e279385685afc1e2",
-      "name": "Binance-USD",
+      "contract": "dAb529f40E671A1D4bF91361c21bf9f0C9712ab7",
+      "name": "Binance-USD Poly",
       "ticker": "BUSD",
       "usdValue": 1.00,
-      "logoUrl": "/logos/binance-usd-busd-logo.svg"
+      "logoUrl": "/logos/binance-usd-busd-poly.svg",
+      "chain": "Polygon"
     },
     {
       "contract": "0ed3d66dd0c9be71c8bf280a010b96881c69e7b6",
-      "name": "SHIBA INU (PoS)",
+      "name": "SHIBA INU (PoS) Poly",
       "ticker": "SHIB",
       "usdValue": 0.00003545,
-      "logoUrl": "/logos/shiba-inu-shib-logo.svg"
+      "logoUrl": "/logos/shiba-inu-poly.svg",
+      "chain": "Polygon"
     },
     {
       "contract": "2c89bbc92bd86f8075d1decc58c7f4e0107f286b",
-      "name": "Avalanche Token",
+      "name": "Avalanche Token Poly",
       "ticker": "AVAX",
       "usdValue": 42.81,
-      "logoUrl": "/logos/avalanche-avax-logo.svg"
+      "logoUrl": "/logos/avalanche-avax-poly.svg",
+      "chain": "Polygon"
     },
     {
       "contract": "53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
-      "name": "ChainLink Token",
+      "name": "ChainLink Token Poly",
       "ticker": "LINK",
       "usdValue": 19.90,
-      "logoUrl": "/logos/chainlink-link-logo.svg"
+      "logoUrl": "/logos/chainlink-poly.svg",
+      "chain": "Polygon"
     },
     {
       "contract": "55ffbee7323cc4647e294f5f1e72a3cc978da5db",
-      "name": "Uniswap (PoS)",
+      "name": "Uniswap (PoS) Poly",
       "ticker": "UNI",
       "usdValue": 14.78,
-      "logoUrl": "/logos/uniswap-uni-logo.svg"
+      "logoUrl": "/logos/uniswap-poly.svg",
+      "chain": "Polygon"
+    },
+    {
+      "contract": "dAC17F958D2ee523a2206206994597C13D831ec7",
+      "name": "Tether USD Eth",
+      "ticker": "USDT",
+      "usdValue": 1.00,
+      "logoUrl": "/logos/tether-usdt-eth.svg",
+      "chain": "Ethereum"
+    },
+    {
+      "contract": "B8c77482e45F1F44dE1745F52C74426C631bDD52",
+      "name": "BNB Eth",
+      "ticker": "BNB",
+      "usdValue": 484.55,
+      "logoUrl": "/logos/bnb-eth.svg",
+      "chain": "Ethereum"
+    },
+    {
+      "contract": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "name": "USD Coin Eth",
+      "ticker": "USDC",
+      "usdValue": 1.00,
+      "logoUrl": "/logos/usd-coin-eth.svg",
+      "chain": "Ethereum"
+    },
+    {
+      "contract": "95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+      "name": "SHIBA INU (PoS) Eth",
+      "ticker": "SHIB",
+      "usdValue": 0.00003545,
+      "logoUrl": "/logos/shiba-inu-eth.svg",
+      "chain": "Ethereum"
+    },
+    {
+      "contract": "514910771AF9Ca656af840dff83E8264EcF986CA",
+      "name": "ChainLink Token Eth",
+      "ticker": "LINK",
+      "usdValue": 19.90,
+      "logoUrl": "/logos/chainlink-eth.svg",
+      "chain": "Ethereum"
+    },
+    {
+      "contract": "1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+      "name": "Uniswap (PoS) Eth",
+      "ticker": "UNI",
+      "usdValue": 14.78,
+      "logoUrl": "/logos/uniswap-eth.svg",
+      "chain": "Ethereum"
     }
   ]
 }

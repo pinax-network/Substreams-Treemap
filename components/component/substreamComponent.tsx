@@ -21,6 +21,7 @@ export type TreeLeaf = {
   type: 'leaf';
   name: string;
   value: number;
+  logoUrl: any;
 };
 
 export type Tree = TreeNode | TreeLeaf;
@@ -145,6 +146,7 @@ function SubstreamPackage({substreamPackage, apiToken, visibleTokens }: {substre
               updatedBalances[contract] = {};
             }
             //console.dir(contract);
+            //console.dir(owner)
             updatedBalances[contract][owner] = newBalanceInUsd;
           });
 
@@ -183,9 +185,11 @@ function SubstreamPackage({substreamPackage, apiToken, visibleTokens }: {substre
         name: `${contractInfo.ticker}`,
         value: Math.log(balance + 1), // Apply logarithmic scaling
         logoUrl: contractInfo.logoUrl,
+        address: owner,
       }))
     };
   });
+  
   
   const treemapData: Tree = {
     type: 'node',
