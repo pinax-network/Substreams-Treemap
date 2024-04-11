@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import * as d3 from "d3";
-import { Tree } from "./substreamComponent";
+import { Tree } from "./UnifiedSubstreamsComponent";
 import styles from "./treemap.module.css";
 
 interface TreemapProps {
@@ -23,7 +23,7 @@ function filterData(data, threshold) {
 }
 
 export const Treemap = ({ width, height, data }: TreemapProps) => {
-  console.log(data); // debug
+  // console.log(data); // debug
 
   const filteredData = filterData(data, 10);
 
@@ -48,11 +48,11 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
       y={chain.y0}
       width={chain.x1 - chain.x0}
       height={chain.y1 - chain.y0}
-      rx="20" // Adjust for rounded corners
-      ry="20" // Adjust for rounded corners
+      rx="20" 
+      ry="20" 
       stroke="white"
       strokeWidth="1"
-      opacity="0.1" // Slightly transparent
+      opacity="0.1" 
     />
   ));
 
@@ -62,7 +62,8 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
     const height = y1 - y0;
     const chainName = leaf.data.chain;
     const baseLink = chainName === "Ethereum" ? "https://etherscan.io/address/0x" : "https://polygonscan.com/address/0x";
-  
+    
+    // Treemap rendering
     return (
       <a
         href={`${baseLink}${data.address}`} // Use the owner's address from the data
@@ -76,8 +77,8 @@ export const Treemap = ({ width, height, data }: TreemapProps) => {
         y={y0}
         width={width}          
         height={height}
-        rx="10" // Adjust for rounded corners
-        ry="10" // Adjust for rounded corners
+        rx="10" 
+        ry="10" 
         stroke="#e5e5e5"
         fill="#e5e5e5"
         className={"opacity-10 hover:opacity-100 transition-opacity duration-100"}

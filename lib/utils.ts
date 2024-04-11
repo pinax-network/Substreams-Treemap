@@ -25,4 +25,3 @@ export async function fetchBlockData(chain: string = 'polygon', range: string = 
 }
 
 
-

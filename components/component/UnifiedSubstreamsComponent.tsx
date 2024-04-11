@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState, useRef } from 'react';
 import { createRegistry, createRequest, fetchSubstream } from '@substreams/core';
 import BlockEmitter from '@substreams/node';
@@ -47,7 +48,16 @@ const UnifiedSubstreamsComponent = ({ visibleTokens }) => {
   }, {});
  
   const fetchDataAndProcess = async (baseUrl: string, manifestUrl: string, chainIdentifier: string) => {
-    const apiKey = "657047275aea337c6dd47fb19715f0df056096af91311c21"; 
+    // get auth API token at 
+    // https://app.streamingfast.io/
+    // https://app.pinax.network/
+    // add NEXT_PUBLIC_SUBSTREAMS_API_KEY="your_api_key_here" to .env file
+
+    if (!process.env.NEXT_PUBLIC_SUBSTREAMS_API_KEY) {
+      throw new Error("SUBSTREAMS_API_KEY is required");
+    }
+
+    const apiKey = process.env.NEXT_PUBLIC_SUBSTREAMS_API_KEY;
     const outputModule = "graph_out"; 
     const startBlockNum = -5; 
 
@@ -83,7 +93,7 @@ const UnifiedSubstreamsComponent = ({ visibleTokens }) => {
           if (!updatedState[chainIdentifier][contract]) updatedState[chainIdentifier][contract] = {}; // Initialize if new contract 
           updatedState[chainIdentifier][contract][owner] = newBalance; // Update contract data
         });
-        console.dir(updatedState)
+
         return updatedState;
       });
 
@@ -157,7 +167,7 @@ const UnifiedSubstreamsComponent = ({ visibleTokens }) => {
 };
 export default UnifiedSubstreamsComponent;
 
-
+// Skeleton UI for when treemap data is loading (to change if other visualization)
 const TreemapSkeleton = ({ width, height }) => {
   return (
     <svg width={width} height={height} className={styles.skeletonWrapper} >

@@ -1,7 +1,5 @@
 'use client'
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
-import SubstreamsComponent from '@/components/component/substreamComponent';
-import {Treemap} from '@/components/component/treemap';
 import React, { useState } from 'react';
 import UnifiedSubstreamsComponent from "./UnifiedSubstreamsComponent";
 
