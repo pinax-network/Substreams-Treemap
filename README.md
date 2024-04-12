@@ -2,9 +2,9 @@
 
 ## Overview
 
-**Interactive Treemap Visualization:** This project creates a visual map of data using nested rectangles to show hierarchical relationships, such as financial data from blockchain contracts. The size and logo of each rectangle provide insights into the data, like contract balances. Clicking a rectangle will let you check the owners transactions on it's respective blockchain scan website
+**Interactive Treemap Visualization:** This project creates a visual map of data using nested figures to show hierarchical relationships of financial data from blockchain contracts and to spot patterns. The size and logo of each rectangle provide insights into the data, like it's contract balances. Clicking a rectangle will let you check the owners transactions on it's respective blockchain scan website
 
-**Real-time Data Integration:** It automatically fetches and updates data from external sources in real-time, ensuring the visualization reflects the most current information about cryptocurrency or contract metrics.
+**Real-time Data Integration:** It automatically fetches and updates data from external sources in real-time, ensuring the visualization reflects the most current information about contract metrics.
 
 ## Installation and Setup
 
