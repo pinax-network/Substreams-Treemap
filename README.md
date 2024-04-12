@@ -6,6 +6,8 @@
 
 **Real-time Data Integration:** It automatically fetches and updates data from external sources in real-time, ensuring the visualization reflects the most current information about contract metrics.
 
+![alt text](public/SnippetTreemap.png)
+
 ## Installation and Setup
 
 To get started with Substreams Treemap, follow these comprehensive steps to set up the project environment and run the application:
